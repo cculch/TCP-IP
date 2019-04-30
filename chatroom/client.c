@@ -32,14 +32,20 @@ int main (int argc, char* argv[]){
 		close(sock_fd);
 		exit(1);
 	}
-	while(1){
+	//while(1){
 		printf("Input a string to send to server:\n");
 		scanf("%s",buffer);
-		//send(sock_fd, buffer, sizeof(buffer), 0);
-		//recv(sock_fd, buffer, sizeof(buffer), 0);
-		write(sock_fd, buffer, BUFFER_SIZE);
-		read(sock_fd, buffer, 128);
+		send(sock_fd, buffer, sizeof(buffer), 0);
+		recv(sock_fd, buffer, sizeof(buffer), 0);
+		//write(sock_fd, buffer, BUFFER_SIZE);
+		//read(sock_fd, buffer, BUFFER_SIZE);
 		printf("Receive string from server:\n%s\n",buffer);
+	//}
+	while(1){
+		recv(sock_fd, buffer, sizeof(buffer), 0);
+		printf("Receive string from client No.%d:\n", atoi(buffer));
+		recv(sock_fd, buffer, sizeof(buffer), 0);
+		printf("Receive string from other client:\n%s\n", buffer);
 	}
 	close(sock_fd);
 	return 0;
