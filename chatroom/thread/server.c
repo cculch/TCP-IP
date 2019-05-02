@@ -72,7 +72,6 @@ void *client_recv(void *argu){
 	char buffer[BUFFER_SIZE];
 
 	while(1){
-		//printf("haha\n");
 		if(recv(cli_fd, buffer, sizeof(buffer), 0) == 0){
 			close(cli_fd);
 			cli_rm(cli_fd);
@@ -93,7 +92,6 @@ void *client_send(void *argu){
 	char buffer[BUFFER_SIZE];
 	int local_str_index = str_index-1;
 	while(if_cli_con(cli_fd)){
-		//still doesn't check if file descripter is still valid
 		if(local_str_index != (str_index-1)){
 			local_str_index = (local_str_index+1)%STR_BUFFER;
 			if(who[local_str_index] != cli_fd){

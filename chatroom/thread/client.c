@@ -44,22 +44,6 @@ int main (int argc, char* argv[]){
 	if(pthread_join(thread_recv, NULL)){
 		printf("Fail to join thread!\n");
 	}
-	//while(1){
-		//printf("Input a strinig to send to server:\n");
-		//scanf("%s",buffer);
-		//send(sock_fd, buffer, sizeof(buffer), 0);
-		//recv(sock_fd, buffer, sizeof(buffer), 0);
-		//write(sock_fd, buffer, BUFFER_SIZE);
-		//read(sock_fd, buffer, BUFFER_SIZE);
-		//printf("Receive string from server:\n%s\n",buffer);
-	//}
-	//while(1){
-		//recv(sock_fd, buffer, sizeof(buffer), 0);
-		//printf("Receive string from client No.%d:\n", atoi(buffer));
-		//recv(sock_fd, buffer, sizeof(buffer), 0);
-		//printf("%s\n", buffer);
-	//}
-	//close(sock_fd);
 	return 0;
 }
 
