@@ -84,8 +84,8 @@ int main(int argc, char* argv[]){
 			printf("Source MAC address: %X:%X:%X:%X:%X:%X\n", source_mac[0], source_mac[1], source_mac[2], source_mac[3], source_mac[4], source_mac[5]);
 			printf("Destination MAC address: %X:%X:%X:%X:%X:%X\n", destination_mac[0], destination_mac[1], destination_mac[2], destination_mac[3], destination_mac[4], destination_mac[5]);
 			printf("IP->protocol = UDP\n");
-			printf("IP->src_ip = %d.%d.%d.%d\n", (pip->saddr)>>24, ((pip->saddr)>>16)&mask, ((pip->saddr)>>8)&mask, (pip->saddr)&mask);
-			printf("IP->src_ip = %d.%d.%d.%d\n", (pip->daddr)>>24, ((pip->daddr)>>16)&mask, ((pip->daddr)>>8)&mask, (pip->daddr)&mask);
+			printf("IP->src_ip = %d.%d.%d.%d\n", (pip->saddr)&mask, ((pip->saddr)>>8)&mask, ((pip->saddr)>>16)&mask, (pip->saddr)>>24);
+			printf("IP->dst_ip = %d.%d.%d.%d\n", (pip->daddr)&mask, ((pip->daddr)>>8)&mask, ((pip->daddr)>>16)&mask, (pip->daddr)>>24);
 		}else{
 			continue;
 		}
